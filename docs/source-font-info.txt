@@ -1,0 +1,28 @@
+File: build/source/Noto-COLRv1.ttf
+Size: 4,812,896 bytes
+
+=== name table ===
+  id=0   plat=3 enc=1 lang=1033 : 'Copyright 2022 Google Inc.'
+  id=1   plat=3 enc=1 lang=1033 : 'Noto Color Emoji'
+  id=2   plat=3 enc=1 lang=1033 : 'Regular'
+  id=3   plat=3 enc=1 lang=1033 : 'Noto Color Emoji'
+  id=4   plat=3 enc=1 lang=1033 : 'Noto Color Emoji'
+  id=5   plat=3 enc=1 lang=1033 : 'Version 2.048;GOOG;noto-emoji:20250612:c7a259fc809502bcb45d983f6a78f94dfceb1fbe'
+  id=6   plat=3 enc=1 lang=1033 : 'NotoColorEmoji'
+  id=7   plat=3 enc=1 lang=1033 : 'Noto is a trademark of Google Inc.'
+  id=8   plat=3 enc=1 lang=1033 : 'Google, Inc.'
+  id=9   plat=3 enc=1 lang=1033 : 'Google, Inc.'
+  id=10  plat=3 enc=1 lang=1033 : 'Color emoji font using COLRv1.'
+  id=11  plat=3 enc=1 lang=1033 : 'https://github.com/googlefonts/noto-emoji'
+  id=12  plat=3 enc=1 lang=1033 : 'https://github.com/googlefonts/noto-emoji'
+  id=13  plat=3 enc=1 lang=1033 : 'This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.'
+  id=14  plat=3 enc=1 lang=1033 : 'http://scripts.sil.org/OFL'
+
+=== color tables present ===
+  COLR  version=1
+  CPAL
+
+=== glyphs ===
+  count=39775
+  sample=['.notdef', 'space', 'uE0062', 'uE0063', 'uE0065', 'uE0067', 'uE006C', 'uE006E']
+  COLRv1 base glyph paint records=3845
