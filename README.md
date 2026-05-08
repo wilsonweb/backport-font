@@ -1,4 +1,4 @@
-# backport-font
+# Backport Font
 
 Convert a modern color font into a renamed, JVM-compatible variant.
 
@@ -6,6 +6,15 @@ The default configuration converts the system **Noto Color Emoji** (which uses
 COLR v1) into **Noto Color Emoji Compat** (COLR v0), so PHPStorm, IntelliJ, and
 other JetBrains IDEs on Fedora Silverblue can render color emoji. Every option
 is overridable, so the same tool works for any color font.
+
+## TLDR
+
+Just copy any .ttf (or .otf) file like the one found at `dist/NotoColorEmojiCompat.ttf` into:
+
+Your user only: `~/.local/share/fonts/`
+All users (needs sudo): `/usr/local/share/fonts/`
+
+`fc-cache -f`
 
 ## What it does
 
