@@ -22,7 +22,11 @@ All users (needs sudo): `/usr/local/share/fonts/`
 2. Rewrites the `name` table so the output advertises a new family name.
 3. (When the source uses COLR v1) flattens the v1 paint graph into a v0 layer
    list — solid layers from gradients are picked at the dominant stop,
-   transforms are dropped, palette references are preserved verbatim.
+   affine transforms are baked into the layer outlines (so flips, scales, and
+   translations are preserved, not lost), composites degrade to their
+   content-bearing child, and palette references are preserved verbatim.
+   Adjacent same-color layers are merged so the whole font fits COLR v0's
+   layer budget without dropping anything.
 
 ## Why
 
@@ -119,15 +123,15 @@ OFL.txt                   # SIL OFL 1.1 — applies to all .ttf files
 
 - Gradients are flattened to a single dominant color — output will look
   flatter than the original.
-- Transforms (rotate/scale/skew) are dropped. For Noto Color Emoji the
-  visual impact is minimal because most paint trees use transforms only
-  for fine adjustments.
-- Per-glyph layer count is capped to keep the v0 `firstLayerIndex` field
-  (a uint16) from overflowing. Very complex glyphs (some flags, some
-  people emoji) may lose minor detail.
-- Some base glyphs whose paint trees don't reach a Solid/Gradient leaf
-  are skipped entirely. They'll render as a fallback (typically `.notdef`).
-  ~262 of 3845 in current Noto Color Emoji.
+- Blend/clip composites (e.g. soft-light shading, src-in masks) can't be
+  represented in COLR v0, so the overlay is dropped and the underlying
+  content is kept. The emoji is recognizable but loses subtle shading.
+- Affine transforms are baked into per-layer outlines by generating
+  transformed copies of the source glyphs. This grows the glyph count
+  (which is also a uint16, capped at 65535) but keeps placement correct.
+- Adjacent same-color layers are merged losslessly to stay within COLR v0's
+  65535-layer-record budget; truncation only kicks in if a font still
+  overflows after merging (Noto does not).
 
 ## Credits
 
